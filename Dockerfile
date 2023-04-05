@@ -68,7 +68,6 @@ RUN \
     dnf config-manager --set-enabled crb && \
     dnf -y module reset php  && \
     dnf -y module enable php:remi-8.0  && \
-    dnf -y remove curl-minimal   && \
     dnf install -y \
     php php-xml php-session php-sockets php-ldap php-gd \
     php-json php-mysqlnd php-gmp php-mbstring php-posix \
