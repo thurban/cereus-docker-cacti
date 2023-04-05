@@ -68,6 +68,7 @@ RUN \
     dnf config-manager --set-enabled crb && \
     dnf -y module reset php  && \
     dnf -y module enable php:remi-8.0  && \
+    dnf -y remove curl-minimal   && \
     dnf install -y \
     php php-xml php-session php-sockets php-ldap php-gd \
     php-json php-mysqlnd php-gmp php-mbstring php-posix \
@@ -77,7 +78,7 @@ RUN \
     rrdtool net-snmp net-snmp-utils cronie mariadb autoconf \
     bison openssl openldap mod_ssl net-snmp-libs automake \
     gcc gzip libtool make net-snmp-devel dos2unix m4 which \
-    openssl-devel mariadb-devel sendmail curl wget help2man perl-libwww-perl && \
+    openssl-devel mariadb-devel sendmail wget help2man perl-libwww-perl && \
     dnf clean all && \
     rm -rf /var/cache/yum/* && \
     chmod 0644 /etc/crontab && \
