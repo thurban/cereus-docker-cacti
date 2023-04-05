@@ -63,7 +63,7 @@ RUN \
     mkdir /spine && \
     dnf update -y && \
     dnf install -y epel-release && \
-    dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm && \
+    dnf install -y dnf-utils http://rpms.remirepo.net/enterprise/remi-release-9.rpm && \
     dnf install -y dnf-plugins-core && \
     dnf config-manager --set-enabled crb && \
     dnf -y module reset php  && \
