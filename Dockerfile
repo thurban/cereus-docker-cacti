@@ -63,7 +63,7 @@ RUN \
     mkdir /spine && \
     dnf update -y && \
     dnf install -y epel-release && \
-    dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm && \
+    dnf install -y dnf-utils http://rpms.remirepo.net/enterprise/remi-release-9.rpm && \
     dnf install -y dnf-plugins-core && \
     dnf config-manager --set-enabled crb && \
     dnf -y module reset php  && \
@@ -77,7 +77,7 @@ RUN \
     rrdtool net-snmp net-snmp-utils cronie mariadb autoconf \
     bison openssl openldap mod_ssl net-snmp-libs automake \
     gcc gzip libtool make net-snmp-devel dos2unix m4 which \
-    openssl-devel mariadb-devel sendmail curl wget help2man perl-libwww-perl && \
+    openssl-devel mariadb-devel sendmail wget help2man perl-libwww-perl && \
     dnf clean all && \
     rm -rf /var/cache/yum/* && \
     chmod 0644 /etc/crontab && \
