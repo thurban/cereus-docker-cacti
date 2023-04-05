@@ -1,6 +1,6 @@
-FROM rockylinux:8
+FROM rockylinux:9
 
-MAINTAINER Thomas Urban <ThomasUrban@urban-software.de>
+LABEL org.opencontainers.image.authors="Thomas Urban <ThomasUrban@urban-software.de>"
 
 # If this is a standalone Cacti, uncomment the following line
 # EXPOSE 80 443
@@ -63,9 +63,9 @@ RUN \
     mkdir /spine && \
     dnf update -y && \
     dnf install -y epel-release && \
-    dnf install -y dnf-utils http://rpms.remirepo.net/enterprise/remi-release-8.rpm && \
+    dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm && \
     dnf install -y dnf-plugins-core && \
-    dnf config-manager --set-enabled powertools && \
+    dnf config-manager --set-enabled crb && \
     dnf -y --enablerepo=powertools install elinks && \
     dnf -y module reset php  && \
     dnf -y module enable php:remi-8.0  && \
@@ -81,5 +81,6 @@ RUN \
     openssl-devel mariadb-devel sendmail curl wget help2man perl-libwww-perl && \
     dnf clean all && \
     rm -rf /var/cache/yum/* && \
+    chmod 0644 /etc/crontab && \
     echo "ServerName localhost" > /etc/httpd/conf.d/fqdn.conf && \
     /usr/libexec/httpd-ssl-gencerts
