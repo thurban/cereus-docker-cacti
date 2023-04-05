@@ -66,7 +66,6 @@ RUN \
     dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm && \
     dnf install -y dnf-plugins-core && \
     dnf config-manager --set-enabled crb && \
-    dnf -y --enablerepo=powertools install elinks && \
     dnf -y module reset php  && \
     dnf -y module enable php:remi-8.0  && \
     dnf install -y \
