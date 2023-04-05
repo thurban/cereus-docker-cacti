@@ -1,7 +1,7 @@
 ﻿# Cacti v1+ Docker Container
 
-#### Dockerhub [![](https://images.microbadger.com/badges/image/smcline06/cacti.svg)](https://microbadger.com/images/smcline06/cacti "Get your own image badge on microbadger.com")[![Stars on Docker Hub](https://img.shields.io/docker/stars/smcline06/cacti.svg)](https://hub.docker.com/r/smcline06/cacti)[![Pulls on Docker Hub](https://img.shields.io/docker/pulls/smcline06/cacti.svg)](https://hub.docker.com/r/smcline06/cacti)  
-#### Github [![GitHub Open Issues](https://img.shields.io/github/issues/scline/docker-cacti.svg)](https://github.com/scline/docker-cacti/issues)[![GitHub Stars](https://img.shields.io/github/stars/scline/docker-cacti.svg)](https://github.com/scline/docker-cacti)[![GitHub Forks](https://img.shields.io/github/forks/scline/docker-cacti.svg)](https://github.com/scline/docker-cacti) 
+#### Dockerhub [![](https://images.microbadger.com/badges/image/smcline06/cacti.svg)](https://microbadger.com/images/smcline06/cacti "Get your own image badge on microbadger.com")[![Stars on Docker Hub](https://img.shields.io/docker/stars/thurban/cereus-docker-cacti.svg)](https://hub.docker.com/r/smcline06/cacti)[![Pulls on Docker Hub](https://img.shields.io/docker/pulls/thurban/cereus-docker-cacti.svg)](https://hub.docker.com/r/thurban/cereus-docker-cacti)  
+#### Github [![GitHub Open Issues](https://img.shields.io/github/issues/thurban/cereus-docker-cacti.svg)](https://github.com/thurban/cereus-docker-cacti/issues)[![GitHub Stars](https://img.shields.io/github/stars/thurban/cereus-docker-cacti.svg)](https://github.com/thurban/cereus-docker-cacti)[![GitHub Forks](https://img.shields.io/github/forks/thurban/cereus-docker-cacti.svg)](https://github.com/thurban/cereus-docker-cacti) 
 
 ## Cacti System
 Cacti is a complete network graphing solution designed to harness the power of RRDTool's data storage and graphing functionality. Cacti provides following features:
@@ -200,6 +200,25 @@ REPLACE INTO `%DB_NAME%`.`settings` (`name`, `value`) VALUES('poller_type', '2')
 ```
 
 # Change Log
+
+#### 1.2.24 - 04/05/2023
+* Update Cacti and Spine from 1.2.23 to 1.2.24
+    * [changelog](https://www.cacti.net/info/changelog/1.2.24)
+* Added Weathermap 1.0 plugin
+* Added Thold 1.5.2 plugin
+* Added Intropage 4.0.2 plugin
+* Added CereusReporting 4.02.04 plugin
+
+#### 1.2.23 - 01/05/2023
+* Update Cacti and Spine from 1.2.22 to 1.2.23
+    * [changelog](https://www.cacti.net/info/changelog/1.2.23)
+
+#### 1.2.22 - 12/30/2022
+* Update Cacti and Spine from 1.2.17 to 1.2.22
+    * [changelog](https://www.cacti.net/info/changelog/1.2.22)
+* [turban](https://github.com/turban) added ability for patch file to base dockerfile image
+* [turban](https://github.com/turban) added REMI repository and switched to PHP 8.0
+* 
 #### 1.2.17 - 05/11/2021
  * Update Cacti and Spine from 1.2.16 to 1.2.17
    * [changelog][CL1.2.17]

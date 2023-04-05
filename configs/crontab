@@ -1,1 +1,2 @@
 */1 * * * * apache php /cacti/poller.php > /dev/null 2>&1
+*/1 * * * * apache php /cacti/plugins/CereusReporting_scheduler.php > /dev/null 2>&1

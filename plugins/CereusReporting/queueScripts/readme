@@ -1,0 +1,66 @@
+Here’s a simple task queue implementation that I’ve started using. It’s great when you need to send an email when you
+process some heavy forms and don’t want the email to slow you down. It’s also great for background syncing of data:
+for example I needed to persist a local change to a remote db over an API when this little queue came handy. Here are
+the details, adjust for your needs.
+
+
+First, you’ll need to plug in your own db access code.
+
+Then, create two constants, CRON_DIR_USERNAME and CRON_DIR_PASSWORD. You probably want to protect access to the folder
+and its contents that will be running the task queue. If not, leave the constants empty or remove from code.
+
+Next, as you probably guessed, you need to create a directory where you will place a file called init.php. Set the cron
+to run that file every 5 or so minutes. This will launch the process that will execute the pending tasks.
+
+Here’s the code for init.php:
+
+<?php
+
+$Tasks = new Queue();
+$Tasks->run();
+
+Now, to add tasks to the queue call:
+
+Queue::add($run_script, Array $params, 'GET' or 'POST');
+Here, $run_script will be the name of the script that does the work. You will need to implement that in the same folder
+where you placed the init.php file. The extension .php will be added automatically. $params is an array of parameters
+that will be given to your implementation script, and the last argument is whether you want the $param array POSTed or
+GET it. GET is default.
+
+For example:
+
+Queue::add('email-customer', array('id' => 'Raivo', 'email' => 'raivo@php.net'), 'POST');
+There’s also a convenience function to check if a task with given params already exists:
+
+Queue::exists($run_script, Array $params);
+Next, you will need to implement the script that will process your task. The script will receive your params as either
+GET or POST.
+
+One way to enhance this Task Queue implementation would be to also supply a task id to your script, so that if something
+goes wrong you could email the id to yourself to follow up on.
+
+The implementation of the script that completes your task is up to you, of course. The only thing you need to do is to
+return JSON object that sets the ‘status’ to either true or false at the end of your script. An easy way to do this in
+PHP is:
+
+echo json_encode(array('status' => false));
+//or
+echo json_encode(array('status' => true));
+When the ‘status’ is true the task is marked as completed; if false, it’s still pending and will be run again.
+
+And finally, here’s the db schema:
+
+CREATE TABLE `queue` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `run_script` varchar(255) NOT NULL,
+  `script_params` text NOT NULL,
+  `completed` int(1) NOT NULL DEFAULT '0',
+  `inserted_datetime` datetime NOT NULL,
+  `completed_datetime` datetime NOT NULL,
+  `task_hash` varchar(32) NOT NULL,
+  `method` enum('POST','GET') NOT NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=latin1
+
+
+Tags: PHP, st louis web development, web developmen

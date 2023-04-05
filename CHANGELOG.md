@@ -1,4 +1,13 @@
 # Change Log
+#### 1.2.24 - 04/05/2023
+* Update Cacti and Spine from 1.2.23 to 1.2.24
+   * [changelog](https://www.cacti.net/info/changelog/1.2.24)
+* Added Weathermap 1.0 plugin
+* Added Thold 1.5.2 plugin
+* Added Intropage 4.0.2 plugin
+* Added CereusReporting 4.02.04 plugin
+
+# Change Log
 #### 1.2.23 - 01/05/2023
 * Update Cacti and Spine from 1.2.22 to 1.2.23
    * [changelog](https://www.cacti.net/info/changelog/1.2.23)

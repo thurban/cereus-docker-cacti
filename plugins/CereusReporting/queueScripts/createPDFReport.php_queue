@@ -1,0 +1,26 @@
+<?php
+	/*******************************************************************************
+	 *
+	 * File:         $Id: createPDFReport.php,v bf53c8f13e3c 2017/01/09 10:01:05 thurban $
+	 * Modified_On:  $Date: 2017/01/09 10:01:05 $
+	 * Modified_By:  $Author: thurban $
+	 * Language:     Perl
+	 * Encoding:     UTF-8
+	 * Status:       -
+	 * License:      Commercial
+	 * Copyright:    Copyright 2009/2010 by Urban-Software.de / Thomas Urban
+	 *******************************************************************************/
+
+	$dir = dirname( __FILE__ );
+	$mainDir = preg_replace( "@plugins.CereusReporting@", "", $dir );
+
+	include_once( 'functions.php' ); // Support functions
+	include_once( 'modules/queueManager/queueManager.php' ); // Report Queue Engine
+
+	chdir( $mainDir );
+	include_once( "./include/global.php" );
+	include_once( "./lib/rrd.php" );
+	//include_once( './include/config.php' );
+	chdir( $dir );
+
+	Queue::add('create-pdf-report', $_REQUEST, 'POST');

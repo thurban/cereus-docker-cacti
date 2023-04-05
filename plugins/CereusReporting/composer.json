@@ -1,0 +1,15 @@
+{
+	"name": "urban-software/cereusreporting",
+	"description": "PDF Reporting Addon for Cacti",
+	"minimum-stability": "stable",
+	"authors": [
+		{
+			"name": "Urban-Software.de",
+			"email": "support@urban-software.de"
+		}
+	],
+	"require": {
+		"mpdf/mpdf": "v8.1.3",
+		"phpmailer/phpmailer": "v6.7.1"
+	}
+}

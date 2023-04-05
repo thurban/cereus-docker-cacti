@@ -1,0 +1,10 @@
+[info]
+name = CereusReporting
+version = 4.02.04
+longname = CereusReporting Plugin
+author = Urban-Software.com
+email = support@urban-software.de
+homepage = https://www.urban-software.com/products/cereusreporting-professional-pdf-reports-for-cacti/
+compat = 1.0.0
+nosync = archive,backup,tmp,*.pdf,setup.php,vendor,server,templates,translations,ReportEngines,queueScripts,modules,libs,include,images,dsstats_reports,docs,assets
+capabilities = online_view:1, online_mgmt:1, offline_view:0, offline_mgmt:0, remote_collect:0
